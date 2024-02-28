@@ -1,0 +1,9 @@
+{
+	"name": "AzureDFcovidreporting",
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "cb9a1f35-feb5-42c3-ae68-dba80ef86361",
+		"tenantId": "2fbcc4d3-5e5b-4f43-918c-f6c1ce6be7fe"
+	}
+}
