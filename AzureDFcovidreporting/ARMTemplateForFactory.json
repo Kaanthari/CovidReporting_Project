@@ -119,7 +119,7 @@
 						"fileName": "populationdata.tsv",
 						"fileSystem": "raw"
 					},
-					"columnDelimiter": ",",
+					"columnDelimiter": "\t",
 					"escapeChar": "\\",
 					"firstRowAsHeader": true,
 					"quoteChar": "\""
@@ -147,7 +147,7 @@
 						"fileName": "population_by_age.tsv.gz",
 						"container": "cr-population"
 					},
-					"columnDelimiter": ",",
+					"columnDelimiter": "\t",
 					"escapeChar": "\\",
 					"firstRowAsHeader": true,
 					"quoteChar": "\""
