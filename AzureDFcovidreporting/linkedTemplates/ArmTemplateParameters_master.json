@@ -11,6 +11,12 @@
 		"ls_covidreportingblob_connectionString": {
 			"value": ""
 		},
+		"Http_nationalcasedeath_properties_typeProperties_url": {
+			"value": "https://opendata.ecdc.europa.eu"
+		},
+		"ls_HttpServer_deathcases_properties_typeProperties_url": {
+			"value": "https://github.com"
+		},
 		"ls_covidreportingadls_properties_typeProperties_url": {
 			"value": "https://gen2covidreporting.dfs.core.windows.net/"
 		},

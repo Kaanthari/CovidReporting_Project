@@ -15,6 +15,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_covidreportingblob'"
 		},
+		"Http_nationalcasedeath_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://opendata.ecdc.europa.eu"
+		},
+		"ls_HttpServer_deathcases_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://github.com"
+		},
 		"ls_covidreportingadls_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://gen2covidreporting.dfs.core.windows.net/"
@@ -51,6 +59,12 @@
 					},
 					"ls_covidreportingblob_connectionString": {
 						"value": "[parameters('ls_covidreportingblob_connectionString')]"
+					},
+					"Http_nationalcasedeath_properties_typeProperties_url": {
+						"value": "[parameters('Http_nationalcasedeath_properties_typeProperties_url')]"
+					},
+					"ls_HttpServer_deathcases_properties_typeProperties_url": {
+						"value": "[parameters('ls_HttpServer_deathcases_properties_typeProperties_url')]"
 					},
 					"ls_covidreportingadls_properties_typeProperties_url": {
 						"value": "[parameters('ls_covidreportingadls_properties_typeProperties_url')]"
