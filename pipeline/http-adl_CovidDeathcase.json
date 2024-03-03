@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Deathcase",
+				"name": "ecdc_data",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
