@@ -1,0 +1,28 @@
+{
+	"name": "tr_ecdc_hospital_admissions",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "http-adl_CovidDeathcase",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"relativeURL": "cloudboxacademy/covid19/raw/main/ecdc_data/hospital_admissions.csv",
+					"filename": "hospital_adm.csv"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2024-03-02T10:30:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}
