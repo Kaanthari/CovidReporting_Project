@@ -20,6 +20,12 @@
 		"ls_covidreportingadls_properties_typeProperties_url": {
 			"value": "https://gen2covidreporting.dfs.core.windows.net/"
 		},
+		"tr_ecdc_hospital_admissions_properties_http-adl_CovidDeathcase_parameters_relativeURL": {
+			"value": "cloudboxacademy/covid19/raw/main/ecdc_data/hospital_admissions.csv"
+		},
+		"tr_ecdc_hospital_admissions_properties_http-adl_CovidDeathcase_parameters_filename": {
+			"value": "hospital_adm.csv"
+		},
 		"containerUri": {
 			"value": ""
 		},
