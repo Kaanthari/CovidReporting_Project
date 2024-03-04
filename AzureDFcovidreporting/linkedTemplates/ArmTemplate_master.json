@@ -17,11 +17,11 @@
 		},
 		"Http_nationalcasedeath_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://opendata.ecdc.europa.eu"
+			"defaultValue": "@{linkedService().sourceBaseURL}"
 		},
 		"ls_HttpServer_deathcases_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://github.com"
+			"defaultValue": "@{linkedService().sourcebaseURL}"
 		},
 		"ls_covidreportingadls_properties_typeProperties_url": {
 			"type": "string",

@@ -17,11 +17,11 @@
 		},
 		"Http_nationalcasedeath_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://opendata.ecdc.europa.eu"
+			"defaultValue": "@{linkedService().sourceBaseURL}"
 		},
 		"ls_HttpServer_deathcases_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://github.com"
+			"defaultValue": "@{linkedService().sourcebaseURL}"
 		},
 		"ls_covidreportingadls_properties_typeProperties_url": {
 			"type": "string",
@@ -98,6 +98,10 @@
 									"relativeURL": {
 										"value": "@pipeline().parameters.relativeURL",
 										"type": "Expression"
+									},
+									"baseURL": {
+										"value": "@pipeline().parameters.sourcebaseURL",
+										"type": "Expression"
 									}
 								}
 							}
@@ -124,6 +128,9 @@
 						"type": "string"
 					},
 					"filename": {
+						"type": "string"
+					},
+					"sourcebaseURL": {
 						"type": "string"
 					}
 				},
@@ -389,10 +396,19 @@
 			"properties": {
 				"linkedServiceName": {
 					"referenceName": "ls_HttpServer_deathcases",
-					"type": "LinkedServiceReference"
+					"type": "LinkedServiceReference",
+					"parameters": {
+						"sourcebaseURL": {
+							"value": "@dataset().baseURL",
+							"type": "Expression"
+						}
+					}
 				},
 				"parameters": {
 					"relativeURL": {
+						"type": "string"
+					},
+					"baseURL": {
 						"type": "string"
 					}
 				},
@@ -418,10 +434,49 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/ecdc_jsonlist')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_covidreportingblob",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "ecdc_file_list_for_2_files.json",
+						"container": "configs"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"sourceRelativeURL": {
+							"type": "string"
+						},
+						"sinkFileName": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_covidreportingblob')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Http_nationalcasedeath')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"parameters": {
+					"sourceBaseURL": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "HttpServer",
 				"typeProperties": {
@@ -437,6 +492,11 @@
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"parameters": {
+					"sourcebaseURL": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "HttpServer",
 				"typeProperties": {
@@ -502,8 +562,7 @@
 						"frequency": "Day",
 						"interval": 5,
 						"startTime": "2024-03-02T10:30:00",
-						"timeZone": "India Standard Time",
-						"schedule": {}
+						"timeZone": "India Standard Time"
 					}
 				}
 			},

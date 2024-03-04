@@ -12,10 +12,10 @@
 			"value": ""
 		},
 		"Http_nationalcasedeath_properties_typeProperties_url": {
-			"value": "https://opendata.ecdc.europa.eu"
+			"value": "@{linkedService().sourceBaseURL}"
 		},
 		"ls_HttpServer_deathcases_properties_typeProperties_url": {
-			"value": "https://github.com"
+			"value": "@{linkedService().sourcebaseURL}"
 		},
 		"ls_covidreportingadls_properties_typeProperties_url": {
 			"value": "https://gen2covidreporting.dfs.core.windows.net/"
