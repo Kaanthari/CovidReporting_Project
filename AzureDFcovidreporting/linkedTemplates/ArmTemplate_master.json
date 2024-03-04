@@ -27,14 +27,6 @@
 			"type": "string",
 			"defaultValue": "https://gen2covidreporting.dfs.core.windows.net/"
 		},
-		"tr_ecdc_hospital_admissions_properties_http-adl_CovidDeathcase_parameters_relativeURL": {
-			"type": "string",
-			"defaultValue": "cloudboxacademy/covid19/raw/main/ecdc_data/hospital_admissions.csv"
-		},
-		"tr_ecdc_hospital_admissions_properties_http-adl_CovidDeathcase_parameters_filename": {
-			"type": "string",
-			"defaultValue": "hospital_adm.csv"
-		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -76,12 +68,6 @@
 					},
 					"ls_covidreportingadls_properties_typeProperties_url": {
 						"value": "[parameters('ls_covidreportingadls_properties_typeProperties_url')]"
-					},
-					"tr_ecdc_hospital_admissions_properties_http-adl_CovidDeathcase_parameters_relativeURL": {
-						"value": "[parameters('tr_ecdc_hospital_admissions_properties_http-adl_CovidDeathcase_parameters_relativeURL')]"
-					},
-					"tr_ecdc_hospital_admissions_properties_http-adl_CovidDeathcase_parameters_filename": {
-						"value": "[parameters('tr_ecdc_hospital_admissions_properties_http-adl_CovidDeathcase_parameters_filename')]"
 					}
 				}
 			},
