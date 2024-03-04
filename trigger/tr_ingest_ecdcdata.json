@@ -1,0 +1,24 @@
+{
+	"name": "tr_ingest_ecdcdata",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "http-adl_CovidDeathcase",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2024-03-04T11:25:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}
