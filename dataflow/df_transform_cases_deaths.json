@@ -12,7 +12,15 @@
 					"name": "CasesandDeathsources"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "casedeaths_ds_sink",
+						"type": "DatasetReference"
+					},
+					"name": "sinkcasesdeaths"
+				}
+			],
 			"transformations": [
 				{
 					"name": "filtereauropeonly"
@@ -39,10 +47,17 @@
 				"CasesandDeathsources filter(continent=='Europe' && not(isNull(country_code))) ~> filtereauropeonly",
 				"filtereauropeonly select(mapColumn(",
 				"          each(match(true()),",
-				"               \"cases_\" + $$ = $$)",
+				"               \"cases_\"+$$ = $$)",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
-				"     skipDuplicateMapOutputs: false) ~> selectOnlyRequiredField"
+				"     skipDuplicateMapOutputs: false) ~> selectOnlyRequiredField",
+				"selectOnlyRequiredField sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sinkcasesdeaths"
 			]
 		}
 	}
