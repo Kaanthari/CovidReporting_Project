@@ -26,7 +26,15 @@
 					"name": "sourcedimdata"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_hosp_data_sink",
+						"type": "DatasetReference"
+					},
+					"name": "sinkhospdata"
+				}
+			],
 			"transformations": [
 				{
 					"name": "SelectReqColumns"
@@ -118,7 +126,14 @@
 				"     disjoint: false) ~> split1@(weekly, daily)",
 				"sourcedimdata derive(ecdc_year_week = year + \"-W\" + lpad(week_of_year, 2, \"0\")) ~> deriveECDCYearWeek",
 				"deriveECDCYearWeek aggregate(groupBy(ecdc_year_week),",
-				"     Week_Start_Date = min(date)) ~> aggDimData"
+				"     Week_Start_Date = min(date)) ~> aggDimData",
+				"aggDimData sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sinkhospdata"
 			]
 		}
 	}
